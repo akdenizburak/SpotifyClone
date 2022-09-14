@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import { View, StyleSheet, Text, Pressable, ScrollView } from 'react-native';
+import CategoryItem from '../components/CategoryItem';
 import SongItem from '../components/SongItem';
 
 const HomePage = () => {
@@ -14,18 +15,10 @@ const HomePage = () => {
                     <Text style={styles.categoriesTitle} >Playlist/Categories</Text>
                 </View>
                 <View style={styles.middleBottom}>
-                    <Pressable style={styles.categoryItem}>
-                        <Text style={styles.textCategoryItem}>New Releases</Text>
-                    </Pressable>
-                    <Pressable style={styles.categoryItem}>
-                        <Text style={styles.textCategoryItem}>Top Chart Turkey</Text>
-                    </Pressable>
-                    <Pressable style={styles.categoryItem}>
-                        <Text style={styles.textCategoryItem}>Liked Your</Text>
-                    </Pressable>
-                    <Pressable style={styles.categoryItem}>
-                        <Text style={styles.textCategoryItem}>Popular Europe</Text>
-                    </Pressable>
+                    <CategoryItem category="New Releases" />
+                    <CategoryItem category="Top 50 Turkey"/>
+                    <CategoryItem category="Top Hits"/>
+                    <CategoryItem category="Liked Songs"/>
                 </View>
 
             </View>
@@ -108,19 +101,6 @@ const styles = StyleSheet.create({
         color: "lightgray",
         fontSize: 30,
         fontWeight: "bold"
-    },
-    categoryItem: {
-        width: "47%",
-        height: 55,
-        backgroundColor: "#222aaa",
-        borderRadius:5,
-        alignItems:"center",
-        justifyContent:"center"
-    },
-    textCategoryItem: {
-        color:"white",
-        fontSize:18,
-        fontWeight:"700",
     },
     content: {
         width: "100%",
