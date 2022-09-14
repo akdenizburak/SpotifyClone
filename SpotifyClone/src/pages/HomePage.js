@@ -20,7 +20,6 @@ const HomePage = () => {
                     <CategoryItem category="Top Hits"/>
                     <CategoryItem category="Liked Songs"/>
                 </View>
-
             </View>
             <ScrollView style={styles.content} >
                 <Text style={styles.contentTitle} >{selectedCategory}</Text>
@@ -73,11 +72,10 @@ const styles = StyleSheet.create({
         color: "white",
         fontSize: 28,
         fontWeight: "700",
-        left: -20
     },
     middle: {
         width: "100%",
-        height: "20%",
+        height: "25%",
         borderBottomColor: "black",
         borderBottomWidth: 10,
         flexDirection: "column",
@@ -91,7 +89,7 @@ const styles = StyleSheet.create({
     },
     middleBottom: {
         width:"100%",
-        height:"80%",
+        height:"75%",
         flexDirection:"row",
         flexWrap:"wrap",
         justifyContent:"space-evenly",
