@@ -3,18 +3,21 @@ import { View, StyleSheet, Image, Pressable, Text } from 'react-native';
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-const SettingsPage = ({avatarURL="https://picsum.photos/id/338/200/200"}) => {
+const SettingsPage = ({ avatarURL = "https://picsum.photos/id/338/200/200",navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Image style={styles.avatar} source={{uri:avatarURL}}/>
+                <Pressable onPress={()=>navigation.goBack()} style={styles.headerTop}>
+                    <Ionicons name="arrow-back" size={35} color="white" />
+                </Pressable>
+                <Image style={styles.avatar} source={{ uri: avatarURL }} />
             </View>
             <View style={styles.middle}>
-                <Pressable style={styles.buttonTheme}>
+                <Pressable onPress={()=>navigation.navigate('Theme')} style={styles.buttonTheme}>
                     <Text style={styles.textTheme}>Theme</Text>
                     <MaterialCommunityIcons name="theme-light-dark" size={35} color="white" />
                 </Pressable>
-                <Pressable style={styles.buttonEdit}>
+                <Pressable onPress={()=>navigation.navigate('Edit')} style={styles.buttonEdit}>
                     <Text style={styles.textEdit}>Edit Profile</Text>
                     <FontAwesome5 name="user-edit" size={26} color="white" />
                 </Pressable>
@@ -40,12 +43,18 @@ const styles = StyleSheet.create({
         height: "40%",
         width: "100%",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent:"flex-end"
+    },
+    headerTop:{
+        width:"100%",
+        height:"20%",
+        paddingLeft:30
     },
     avatar: {
         width: 200,
         height: 200,
-        borderRadius: 100
+        borderRadius: 100,
+        textAlign: "center"
     },
     middle: {
         height: "30%",

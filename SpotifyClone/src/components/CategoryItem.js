@@ -16,7 +16,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#222aaa",
         borderRadius:5,
         alignItems:"center",
-        justifyContent:"center"
+        justifyContent:"center",
+        marginTop:10
     },
     textCategoryItem: {
         color:"white",

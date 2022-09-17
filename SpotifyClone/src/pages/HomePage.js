@@ -24,21 +24,12 @@ const HomePage = () => {
             <ScrollView style={styles.content} >
                 <Text style={styles.contentTitle} >{selectedCategory}</Text>
                 <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
-                <SongItem singer="Yalın" song="Ki Sen" avatarURL="https://picsum.photos/id/339/200/200" />
+                <SongItem singer="Sefo" song="Issabelle" avatarURL="https://picsum.photos/id/337/200/200" />
+                <SongItem singer="Ezhel" song="Nerdesin" avatarURL="https://picsum.photos/id/336/200/200" />
+                <SongItem singer="Martin Garrix" song="Follow" avatarURL="https://picsum.photos/id/335/200/200" />
+                <SongItem singer="Tiesto" song="Hot In It" avatarURL="https://picsum.photos/id/334/200/200" />
+
+
             </ScrollView>
         </View>
     );
@@ -60,7 +51,8 @@ const styles = StyleSheet.create({
         alignItems: "flex-end",
         paddingBottom: 20,
         borderBottomColor: "black",
-        borderBottomWidth: 8
+        borderBottomWidth: 8,
+        marginTop:10
     },
     imageAvatar: {
         height: 70,
@@ -76,8 +68,7 @@ const styles = StyleSheet.create({
     middle: {
         width: "100%",
         height: "25%",
-        borderBottomColor: "black",
-        borderBottomWidth: 10,
+
         flexDirection: "column",
         paddingHorizontal: 20,
         flexWrap: "wrap"
@@ -92,7 +83,7 @@ const styles = StyleSheet.create({
         height:"75%",
         flexDirection:"row",
         flexWrap:"wrap",
-        justifyContent:"space-evenly",
+        justifyContent:"space-between",
         alignContent:"space-around"
     },
     categoriesTitle: {

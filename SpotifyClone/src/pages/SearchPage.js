@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, TextInput } from 'react-native';
+import { View, StyleSheet, Text, TextInput, ScrollView } from 'react-native';
 import CategoryItem from './../components/CategoryItem';
 
 import { Ionicons } from '@expo/vector-icons';
@@ -31,18 +31,29 @@ const SearchPage = () => {
             <View style={styles.container}>
                 <View style={styles.header} >
                     <Text style={styles.textSearch}>Search</Text>
-                    <TextInput onFocus={() => setIsSearch(true)} style={styles.textInputSearch} placeholder='Search Music' />
+                    <TextInput onFocus={() => setIsSearch(true)} style={styles.textInputSearch} placeholder='Search Music' placeholderTextColor={"gray"}/>
                 </View>
                 <View style={styles.middle} >
                     <View style={styles.middleTop}>
                         <Text style={styles.genresTitle} >Genres</Text>
                     </View>
-                    <View style={styles.middleBottom}>
+                    <ScrollView contentContainerStyle={styles.middleBottom} scrollEnabled={true}>
                         <CategoryItem category="New Releases" />
                         <CategoryItem category="Top 50 Turkey" />
                         <CategoryItem category="Top Hits" />
-                        <CategoryItem category="Liked Songs" />
-                    </View>
+                        <CategoryItem category="Best Songs" />
+                        <CategoryItem category="Piano" />
+                        <CategoryItem category="Relaxing Songs" />
+                        <CategoryItem category="Clasical" />
+                        <CategoryItem category="Techno" />
+                        <CategoryItem category="Trap" />
+                        <CategoryItem category="Recently" />
+                        <CategoryItem category="Electro" />
+                        <CategoryItem category="Most Popular" />
+
+
+
+                    </ScrollView>
                 </View>
             </View>
     )
@@ -63,7 +74,8 @@ const styles = StyleSheet.create({
         borderBottomColor: "black",
         borderBottomWidth: 8,
         alignItems: "center",
-        justifyContent: "flex-end"
+        justifyContent: "flex-end",
+        marginTop:10
     },
     containerSearch:{
         flexDirection:"row",
@@ -89,7 +101,7 @@ const styles = StyleSheet.create({
     },
     middle: {
         width: "100%",
-        height: "20%",
+        height: "85%",
         borderBottomColor: "black",
         borderBottomWidth: 10,
         flexDirection: "column",
@@ -98,12 +110,12 @@ const styles = StyleSheet.create({
     },
     middleTop: {
         width: "100%",
-        height: "25%",
+        height: "5%",
         justifyContent: "center",
     },
     middleBottom: {
         width: "100%",
-        height: "75%",
+        height: "90%",
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-around",
@@ -112,7 +124,7 @@ const styles = StyleSheet.create({
     genresTitle: {
         color: "lightgray",
         fontSize: 30,
-        fontWeight: "bold"
+        fontWeight: "bold",
     },
 })
 
