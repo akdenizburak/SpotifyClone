@@ -1,13 +1,37 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { View, StyleSheet, Text, Image, TextInput, Pressable, Alert } from 'react-native';
+import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword} from 'firebase/auth';
+import {initializeApp} from 'firebase/app';
+import {firebaseConfig} from '../../firebase';
 
 const SignUpPage = ({navigation}) => {
 const [email,setEmail]=useState("");
 const [password,setPassword]=useState("");
 const [passwordAgain,setPasswordAgain]=useState("");
 
-const handleSıgnUp=()=>{
-  password!==passwordAgain? alert("Passwords must be same"): alert("Sign Up Successful")
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+
+useEffect(()=>{
+  const unsubscribe= auth.onAuthStateChanged(user=>{
+      if(!user){
+          navigation.goBack();
+      }
+  })
+  return unsubscribe
+},[])
+
+const handleSignUp=()=>{
+  
+  password!==passwordAgain? alert("Passwords must be same"):
+  createUserWithEmailAndPassword(auth,email,password)
+  .then(userCredential=>{
+      const user=userCredential.user;
+      alert("Sign Up Successed!")
+  })
+  .catch(error=>{
+      alert(error.message)
+  }) 
 }
 
   return (
@@ -23,7 +47,7 @@ const handleSıgnUp=()=>{
         <TextInput style={styles.inputPasswordAgain} placeholder="PasswordAgain" value={passwordAgain} onChangeText={setPasswordAgain} secureTextEntry={true} />
       </View>
       <View style={styles.footer}>
-        <Pressable style={styles.buttonSignUp} onPress={handleSıgnUp} >
+        <Pressable style={styles.buttonSignUp} onPress={handleSignUp} >
           <Text style={styles.textSıgnUp}>SIGN UP</Text>
         </Pressable>
         <Text style={styles.textAccount}>Do you have an account?</Text>

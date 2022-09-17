@@ -1,10 +1,27 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Text, Image, TextInput, Pressable } from 'react-native';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from '../../firebase';
 
-const SignInPage = ({navigation}) => {
+const SignInPage = ({ navigation }) => {
 
-  const [email,setEmail]=useState("");
-  const [password,setPassword]=useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const handleSignIn = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user
+        alert("Signed In! Welcome")
+      })
+      .catch(error => {
+      })
+    navigation.navigate('BottomTab')
+  }
 
   return (
     <View>
@@ -18,7 +35,7 @@ const SignInPage = ({navigation}) => {
         <TextInput style={styles.inputPassword} placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry={true} />
       </View>
       <View style={styles.footer}>
-        <Pressable style={styles.buttonSignIn} >
+        <Pressable onPress={handleSignIn} style={styles.buttonSignIn} >
           <Text style={styles.textSıgnIn}>LOG IN</Text>
         </Pressable>
         <Text style={styles.textAccount}>Don't you have an account?</Text>
@@ -90,13 +107,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#1eb955",
     justifyContent: "center",
     flexDirection: "column",
-    bottom:70
+    bottom: 70
   },
   buttonSignUp: {
     width: "70%",
     height: "18%",
-    borderWidth:3,
-    borderColor:"black",
+    borderWidth: 3,
+    borderColor: "black",
     borderRadius: 30,
     fontSize: 23,
     marginVertical: 10,
