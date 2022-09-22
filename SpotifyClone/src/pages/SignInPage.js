@@ -17,10 +17,10 @@ const SignInPage = ({ navigation }) => {
       .then((userCredential) => {
         const user = userCredential.user
         alert("Signed In! Welcome")
+        navigation.navigate('Bottom7h  5 ')
       })
       .catch(error => {
       })
-    navigation.navigate('BottomTab')
   }
 
   return (
