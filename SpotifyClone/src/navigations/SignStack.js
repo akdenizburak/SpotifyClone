@@ -8,13 +8,13 @@ import BottomTab from './BottomTab'
 
 const Stack = createNativeStackNavigator();
 
-export const SignStack=()=> {
+export default SignStack=()=> {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown:false}}>
         <Stack.Screen name="SignIn" component={SignInPage} />
         <Stack.Screen name="SignUp" component={SignUpPage} />
-        <Stack.Screen name="BottomTab" component={BottomTab} />
+        <Stack.Screen name="Bottom" component={BottomTab} />
       </Stack.Navigator>
     </NavigationContainer>
   );

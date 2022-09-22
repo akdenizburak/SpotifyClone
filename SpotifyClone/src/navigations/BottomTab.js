@@ -10,9 +10,9 @@ import { NavigationContainer } from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 
-export const BottomTab = () => {
+export default BottomTab = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer independent={true}>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -34,7 +34,10 @@ export const BottomTab = () => {
           tabBarActiveTintColor: 'green',
           tabBarInactiveTintColor: 'gray',
           headerShown: false,
-          headerTintColor: "red"
+          headerTintColor: "red",
+          tabBarStyle:{
+            backgroundColor:"#010101"
+          }
         })}>
         <Tab.Screen name="Home" component={HomePage} />
         <Tab.Screen name="Search" component={SearchPage} />
